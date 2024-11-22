@@ -1,19 +1,33 @@
-print("Hola")
-'''
-Descripción:
-Crea un sistema que gestione la información de los alumnos, las clases a las que pertenecen, y las asignaturas que cursan. Cada alumno tendrá un nombre, una clase asignada, y podrá inscribirse en varias asignaturas. A su vez, cada asignatura tendrá un nombre, un profesor asignado y una lista de notas.
+'''Ejercicio 2: Filtrar productos por precio
 
-Requisitos:
-Clase Persona: Esta clase representará a una persona genérica con los atributos de nombre y edad.
-Clase Alumno (hereda de Persona): Representará a un alumno, y tendrá una clase asignada, y una lista de asignaturas que está cursando.
-Clase Asignatura: Tendrá un nombre, un profesor asignado, y una lista de notas (para varios exámenes).
-Métodos:
-Inscribir al alumno en una asignatura.
-Añadir una nota a una asignatura.
-Mostrar las asignaturas que cursa un alumno.
-Mostrar el promedio de notas de una asignatura.
-Agregar un método para eliminar una asignatura de un alumno.
-Mostrar la nota media de todas las asignaturas.
-'''
+Se te da un DataFrame con la siguiente información sobre productos:
 
-print("Hola")
+Productos: ['Televisor', 'Computadora', 'Celular', 'Tablet']
+Precios: [800, 1200, 600, 300]
+Filtra los productos que tienen un precio mayor a 500.
+Encuentra el producto con el precio más bajo.
+Ordena los productos por precio de forma ascendente.'''
+import pandas as pd
+# Datos de productos
+productos_data = {
+    'Producto': ['Televisor', 'Computadora', 'Celular', 'Tablet'],
+    'Precio': [800, 1200, 600, 300]
+}
+
+# Crear el DataFrame
+df_productos = pd.DataFrame(productos_data)
+
+#Filtrar los productos con precio mayor a 500
+productos_filtrados = df_productos[df_productos['Precio'] > 500]
+print("Productos con precio mayor a 500:")
+print(productos_filtrados)
+
+#Producto con el precio más bajo
+producto_barato = df_productos[df_productos['Precio'] == df_productos['Precio'].min()]
+print("\nProducto con el precio más bajo:")
+print(producto_barato)
+
+#Ordenar los productos por precio (ascendente)
+productos_ordenados = df_productos.sort_values(by='Precio')
+print("\nProductos ordenados por precio (ascendente):")
+print(productos_ordenados)
